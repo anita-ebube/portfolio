@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" fill="none">
+  <defs>
+    <!-- Background Radial Gradient -->
+    <radialGradient id="portraitGlow" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#141922" />
+      <stop offset="55%" stop-color="#0c0e12" />
+      <stop offset="100%" stop-color="#070809" />
+    </radialGradient>
+
+    <!-- Electric Lime Core Ambient Glow -->
+    <radialGradient id="limeAura" cx="50%" cy="42%" r="48%">
+      <stop offset="0%" stop-color="#c8ff00" stop-opacity="0.14" />
+      <stop offset="45%" stop-color="#c8ff00" stop-opacity="0.03" />
+      <stop offset="100%" stop-color="#c8ff00" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Linear Metallic Border Gradient -->
+    <linearGradient id="metalBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3f2ee" stop-opacity="0.32" />
+      <stop offset="30%" stop-color="#c8ff00" stop-opacity="0.75" />
+      <stop offset="70%" stop-color="#666c75" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#f3f2ee" stop-opacity="0.28" />
+    </linearGradient>
+
+    <!-- Architectural Grid Pattern -->
+    <pattern id="archGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f3f2ee" stroke-opacity="0.035" stroke-width="1" />
+      <circle cx="40" cy="40" r="1" fill="#c8ff00" fill-opacity="0.2" />
+    </pattern>
+  </defs>
+
+  <!-- Deep Canvas Base -->
+  <rect width="800" height="1000" fill="url(#portraitGlow)" />
+  <rect width="800" height="1000" fill="url(#archGrid)" />
+  <circle cx="400" cy="440" r="320" fill="url(#limeAura)" />
+
+  <!-- Inner Architectural Guideline -->
+  <rect x="36" y="36" width="728" height="928" rx="14" fill="none" stroke="#f3f2ee" stroke-opacity="0.06" stroke-width="1" stroke-dasharray="4 6" />
+
+  <!-- Central Editorial Silhouette & Monogram Composition -->
+  <g transform="translate(400, 430)">
+    <!-- Architectural Focus Reticle Rings -->
+    <circle cx="0" cy="0" r="240" fill="none" stroke="#f3f2ee" stroke-opacity="0.06" stroke-width="1" />
+    <circle cx="0" cy="0" r="190" fill="none" stroke="#c8ff00" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="6 8" />
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#f3f2ee" stroke-opacity="0.09" stroke-width="1" />
+
+    <!-- Minimalist Architectural Silhouette Contours -->
+    <!-- Head & Shoulders Architectural Form -->
+    <path d="M -90 190 C -90 140 -55 110 -40 100 C -25 75 -28 30 -28 -10 C -28 -60 -10 -90 0 -90 C 10 -90 28 -60 28 -10 C 28 30 25 75 40 100 C 55 110 90 140 90 190 Z" 
+          fill="#13171e" stroke="#c8ff00" stroke-opacity="0.35" stroke-width="1.5" />
+
+    <path d="M -160 230 C -150 170 -90 150 -50 140 C -35 130 0 125 0 125 C 0 125 35 130 50 140 C 90 150 150 170 160 230 Z" 
+          fill="#171c24" stroke="#f3f2ee" stroke-opacity="0.18" stroke-width="1.2" />
+
+    <!-- Monogram Seal Centerpiece -->
+    <circle cx="0" cy="-10" r="56" fill="#070809" stroke="#c8ff00" stroke-width="2" />
+    <text x="0" y="2" text-anchor="middle" dominant-baseline="central" fill="#f3f2ee" font-family="'Syne', sans-serif" font-size="28" font-weight="800" letter-spacing="0.08em">ANITA</text>
+    <text x="0" y="24" text-anchor="middle" dominant-baseline="central" fill="#c8ff00" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600" letter-spacing="0.22em">PM × FE</text>
+
+    <!-- Crosshair Target Ticks -->
+    <line x1="-250" y1="0" x2="-220" y2="0" stroke="#c8ff00" stroke-width="1.5" />
+    <line x1="220" y1="0" x2="250" y2="0" stroke="#c8ff00" stroke-width="1.5" />
+    <line x1="0" y1="-250" x2="0" y2="-220" stroke="#c8ff00" stroke-width="1.5" />
+    <line x1="0" y1="220" x2="0" y2="250" stroke="#c8ff00" stroke-width="1.5" />
+  </g>
+
+  <!-- Clear Human-Readable Placeholder Status Banner -->
+  <g transform="translate(400, 725)">
+    <!-- Status Container Box -->
+    <rect x="-240" y="-34" width="480" height="68" rx="34" fill="#0d0f12" stroke="#c8ff00" stroke-opacity="0.45" stroke-width="1.5" />
+    <circle cx="-205" cy="0" r="5" fill="#c8ff00" />
+    <text x="-185" y="-4" fill="#f3f2ee" font-family="'Syne', sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.04em">PORTRAIT ASSET SLOT</text>
+    <text x="-185" y="14" fill="#a1a6ae" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="500" letter-spacing="0.14em">READY FOR AUTHOR PHOTOGRAPH</text>
+    <text x="205" y="4" text-anchor="end" fill="#c8ff00" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">4:5</text>
+  </g>
+</svg>
