@@ -13,18 +13,17 @@ import { useSectionTransition } from "@/components/portfolio/SectionTransitionCo
 
 export function ExperienceScene() {
   const prefersReducedMotion = usePrefersReducedMotion();
-  const { goToSection, nextSection, activeSection } = useSectionTransition();
-  const isActive = activeSection === 2;
+  const { goToSection, nextSection } = useSectionTransition();
 
-  // Staggered word reveal for COMPUTER SCIENCE
+  // Word reveal for COMPUTER SCIENCE
   const wordRevealVariants: Variants = {
-    hidden: { y: "115%", opacity: 0 },
+    hidden: { opacity: 0, y: 8 },
     visible: (i: number) => ({
-      y: "0%",
+      y: 0,
       opacity: 1,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.85,
-        delay: prefersReducedMotion ? 0 : 0.2 + i * 0.15,
+        duration: prefersReducedMotion ? 0.1 : 0.35,
+        delay: prefersReducedMotion ? 0 : i * 0.08,
         ease: EASE_EDITORIAL,
       },
     }),
@@ -33,15 +32,14 @@ export function ExperienceScene() {
   // Horizontal line drawing variant
   const lineDrawVariants: Variants = {
     hidden: { scaleX: 0, opacity: 0 },
-    visible: (delay: number) => ({
+    visible: {
       scaleX: 1,
       opacity: 1,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.8,
-        delay: prefersReducedMotion ? 0 : delay,
+        duration: prefersReducedMotion ? 0.1 : 0.4,
         ease: EASE_EDITORIAL,
       },
-    }),
+    },
   };
 
   // Vertical timeline progression line
@@ -51,8 +49,7 @@ export function ExperienceScene() {
       scaleY: 1,
       opacity: 1,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.85,
-        delay: prefersReducedMotion ? 0 : 0.5,
+        duration: prefersReducedMotion ? 0.1 : 0.4,
         ease: EASE_EDITORIAL,
       },
     },
@@ -60,13 +57,13 @@ export function ExperienceScene() {
 
   // Column entrance variants
   const columnVariants: Variants = {
-    hidden: { opacity: 0, y: 18 },
+    hidden: { opacity: 0, y: 12 },
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.7,
-        delay: prefersReducedMotion ? 0 : 0.1 + i * 0.14,
+        duration: prefersReducedMotion ? 0.1 : 0.4,
+        delay: prefersReducedMotion ? 0 : i * 0.08,
         ease: EASE_EDITORIAL,
       },
     }),
@@ -74,16 +71,15 @@ export function ExperienceScene() {
 
   // Staggered child item
   const childItemVariants: Variants = {
-    hidden: { opacity: 0, y: 12 },
-    visible: (delay: number) => ({
+    hidden: { opacity: 0, y: 8 },
+    visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.6,
-        delay: prefersReducedMotion ? 0 : delay,
+        duration: prefersReducedMotion ? 0.1 : 0.35,
         ease: EASE_EDITORIAL,
       },
-    }),
+    },
   };
 
   return (
@@ -142,7 +138,7 @@ export function ExperienceScene() {
             {/* ======================================================== */}
             <motion.div
               initial={prefersReducedMotion ? false : "hidden"}
-              animate={isActive ? "visible" : "hidden"}
+              animate="visible"
               variants={columnVariants}
               custom={0}
               className="group relative flex flex-col justify-between rounded-2xl border border-[rgba(243,242,238,0.1)] bg-[rgba(13,15,18,0.65)] p-5 sm:p-6 lg:p-7 backdrop-blur-xl hover:border-[rgba(243,242,238,0.22)] transition-colors duration-300 min-h-[310px] lg:min-h-[370px]"
@@ -228,7 +224,7 @@ export function ExperienceScene() {
             {/* ======================================================== */}
             <motion.div
               initial={prefersReducedMotion ? false : "hidden"}
-              animate={isActive ? "visible" : "hidden"}
+              animate="visible"
               variants={columnVariants}
               custom={1}
               className="group relative flex flex-col justify-between rounded-2xl border border-[rgba(243,242,238,0.1)] bg-[rgba(13,15,18,0.65)] p-5 sm:p-6 lg:p-7 backdrop-blur-xl hover:border-[rgba(243,242,238,0.22)] transition-colors duration-300 min-h-[310px] lg:min-h-[370px]"
@@ -315,7 +311,7 @@ export function ExperienceScene() {
             {/* ======================================================== */}
             <motion.div
               initial={prefersReducedMotion ? false : "hidden"}
-              animate={isActive ? "visible" : "hidden"}
+              animate="visible"
               variants={columnVariants}
               custom={2}
               className="group relative flex flex-col justify-between rounded-2xl border border-[rgba(243,242,238,0.1)] bg-[rgba(13,15,18,0.65)] p-5 sm:p-6 lg:p-7 backdrop-blur-xl hover:border-[rgba(243,242,238,0.22)] transition-colors duration-300 min-h-[310px] lg:min-h-[370px]"
@@ -385,7 +381,7 @@ export function ExperienceScene() {
         {/* Bottom Bar: Scene Advancement Triggers */}
         <motion.div
           initial={prefersReducedMotion ? false : "hidden"}
-          animate={isActive ? "visible" : "hidden"}
+          animate="visible"
           variants={childItemVariants}
           custom={0.65}
           className="border-t border-[rgba(243,242,238,0.08)] flex items-center justify-between pt-2.5 sm:pt-3"
