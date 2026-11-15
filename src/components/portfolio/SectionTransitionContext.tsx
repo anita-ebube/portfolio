@@ -67,44 +67,39 @@ export function SectionTransitionProvider({ children }: { children: ReactNode })
   const activeSectionRef = useRef<number>(0);
   activeSectionRef.current = activeSection;
 
-  const isTransitioningRef = useRef<boolean>(false);
-  isTransitioningRef.current = isTransitioning;
-
-  const isModalOpenRef = useRef<boolean>(false);
-  isModalOpenRef.current = isModalOpen;
-
-  const lastTransitionTimeRef = useRef<number>(0);
-  const touchStartYRef = useRef<number | null>(null);
-  const touchStartXRef = useRef<number | null>(null);
-
   const prefersReducedMotion = usePrefersReducedMotion();
-  const transitionDuration = prefersReducedMotion ? 250 : 750;
 
+  // Smooth scroll to target section without hijacking natural wheel/touch events
   const goToSection = useCallback(
     (targetIndex: number) => {
       const clamped = Math.max(0, Math.min(TOTAL_SECTIONS - 1, targetIndex));
-      if (clamped === activeSectionRef.current) return;
+      const sectionInfo = PORTFOLIO_SECTIONS[clamped];
+      if (!sectionInfo) return;
 
       const newDirection = clamped > activeSectionRef.current ? "down" : "up";
       setDirection(newDirection);
       setIsTransitioning(true);
       activeSectionRef.current = clamped;
       setActiveSection(clamped);
-      lastTransitionTimeRef.current = Date.now();
 
-      // Sync URL hash
       if (typeof window !== "undefined") {
-        const hash = PORTFOLIO_SECTIONS[clamped]?.id;
-        if (hash) {
-          window.history.replaceState(null, "", `#${hash}`);
+        const el = document.getElementById(sectionInfo.id);
+        if (el) {
+          const navHeight = 76; // --nav-height offset
+          const elTop = el.getBoundingClientRect().top + window.scrollY - navHeight;
+          window.scrollTo({
+            top: Math.max(0, elTop),
+            behavior: prefersReducedMotion ? "auto" : "smooth",
+          });
         }
+        window.history.replaceState(null, "", `#${sectionInfo.id}`);
       }
 
       setTimeout(() => {
         setIsTransitioning(false);
-      }, transitionDuration);
+      }, prefersReducedMotion ? 150 : 600);
     },
-    [transitionDuration]
+    [prefersReducedMotion]
   );
 
   const nextSection = useCallback(() => {
@@ -129,154 +124,64 @@ export function SectionTransitionProvider({ children }: { children: ReactNode })
     if (matched >= 0) {
       setActiveSection(matched);
       activeSectionRef.current = matched;
+      setTimeout(() => {
+        const el = document.getElementById(initialHash);
+        if (el) {
+          const navHeight = 76;
+          const elTop = el.getBoundingClientRect().top + window.scrollY - navHeight;
+          window.scrollTo({
+            top: Math.max(0, elTop),
+            behavior: "auto",
+          });
+        }
+      }, 100);
     }
   }, []);
 
-  // Wheel, Touch, and Keyboard Listeners
+  // IntersectionObserver: passively updates activeSection as the user scrolls naturally
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) return;
 
-    const onWheel = (e: WheelEvent) => {
-      // Never hijack if a modal is open
-      if (isModalOpenRef.current) return;
-
-      // Allow natural scrolling inside elements with data-allow-scroll
-      let target = e.target as HTMLElement | null;
-      while (target && target !== document.body) {
-        if (target.dataset?.allowScroll === "true") {
-          const isScrollable = target.scrollHeight > target.clientHeight;
-          if (isScrollable) return;
-        }
-        target = target.parentElement;
-      }
-
-      // Check transition cooldown
-      const now = Date.now();
-      if (now - lastTransitionTimeRef.current < transitionDuration) {
-        return;
-      }
-
-      // Require decisive wheel movement
-      const threshold = 32;
-      if (Math.abs(e.deltaY) < threshold) return;
-
-      if (e.deltaY > 0) {
-        if (activeSectionRef.current < TOTAL_SECTIONS - 1) {
-          e.preventDefault();
-          nextSection();
-        }
-      } else {
-        if (activeSectionRef.current > 0) {
-          e.preventDefault();
-          prevSection();
+    const observers: IntersectionObserver[] = [];
+    const handleIntersect: IntersectionObserverCallback = (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const index = PORTFOLIO_SECTIONS.findIndex((s) => s.id === id);
+          if (index >= 0 && index !== activeSectionRef.current) {
+            activeSectionRef.current = index;
+            setActiveSection(index);
+            window.history.replaceState(null, "", `#${id}`);
+          }
         }
       }
     };
 
-    const onTouchStart = (e: TouchEvent) => {
-      if (isModalOpenRef.current) return;
-      if (e.touches.length === 1) {
-        touchStartYRef.current = e.touches[0].clientY;
-        touchStartXRef.current = e.touches[0].clientX;
-      }
-    };
+    const observer = new IntersectionObserver(handleIntersect, {
+      root: null,
+      rootMargin: "-25% 0px -40% 0px", // Active when section occupies viewport center
+      threshold: [0, 0.25],
+    });
 
-    const onTouchEnd = (e: TouchEvent) => {
-      if (isModalOpenRef.current) return;
-      if (touchStartYRef.current === null || touchStartXRef.current === null) return;
-
-      const touchEndY = e.changedTouches[0].clientY;
-      const touchEndX = e.changedTouches[0].clientX;
-      const diffY = touchStartYRef.current - touchEndY;
-      const diffX = touchStartXRef.current - touchEndX;
-
-      touchStartYRef.current = null;
-      touchStartXRef.current = null;
-
-      // Only trigger if vertical swipe dominates horizontal swipe
-      if (Math.abs(diffY) < Math.abs(diffX) * 1.2) return;
-
-      const swipeThreshold = 45;
-      if (Math.abs(diffY) < swipeThreshold) return;
-
-      const now = Date.now();
-      if (now - lastTransitionTimeRef.current < transitionDuration) return;
-
-      if (diffY > 0) {
-        // Swiped up -> next section
-        if (activeSectionRef.current < TOTAL_SECTIONS - 1) {
-          nextSection();
-        }
-      } else {
-        // Swiped down -> previous section
-        if (activeSectionRef.current > 0) {
-          prevSection();
-        }
-      }
-    };
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (isModalOpenRef.current) return;
-
-      // Do not hijack typing in inputs
-      const activeElement = document.activeElement;
-      if (
-        activeElement &&
-        (activeElement.tagName === "INPUT" ||
-          activeElement.tagName === "TEXTAREA" ||
-          activeElement.tagName === "SELECT")
-      ) {
-        return;
-      }
-
-      const now = Date.now();
-      if (now - lastTransitionTimeRef.current < transitionDuration) return;
-
-      if (e.key === "ArrowDown" || e.key === "PageDown") {
-        if (activeSectionRef.current < TOTAL_SECTIONS - 1) {
-          e.preventDefault();
-          nextSection();
-        }
-      } else if (e.key === "ArrowUp" || e.key === "PageUp") {
-        if (activeSectionRef.current > 0) {
-          e.preventDefault();
-          prevSection();
-        }
-      } else if (e.key === " " && !e.shiftKey) {
-        if (activeSectionRef.current < TOTAL_SECTIONS - 1) {
-          e.preventDefault();
-          nextSection();
-        }
-      } else if (e.key === " " && e.shiftKey) {
-        if (activeSectionRef.current > 0) {
-          e.preventDefault();
-          prevSection();
-        }
-      } else if (e.key === "Home") {
-        e.preventDefault();
-        goToSection(0);
-      } else if (e.key === "End") {
-        e.preventDefault();
-        goToSection(TOTAL_SECTIONS - 1);
-      }
-    };
-
-    window.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("touchstart", onTouchStart, { passive: true });
-    window.addEventListener("touchend", onTouchEnd, { passive: true });
-    window.addEventListener("keydown", onKeyDown);
+    PORTFOLIO_SECTIONS.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
 
     // Provide testing/automation hook
-    (window as unknown as { __goToSection?: (i: number) => void; __getActiveSection?: () => number }).__goToSection = goToSection;
-    (window as unknown as { __goToSection?: (i: number) => void; __getActiveSection?: () => number }).__getActiveSection = () => activeSectionRef.current;
+    const win = window as unknown as {
+      __goToSection?: (i: number) => void;
+      __portfolioGoToSection?: (i: number) => void;
+      __getActiveSection?: () => number;
+    };
+    win.__goToSection = goToSection;
+    win.__portfolioGoToSection = goToSection;
+    win.__getActiveSection = () => activeSectionRef.current;
 
     return () => {
-      window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("touchstart", onTouchStart);
-      window.removeEventListener("touchend", onTouchEnd);
-      window.removeEventListener("keydown", onKeyDown);
+      observer.disconnect();
     };
-  }, [goToSection, nextSection, prevSection, transitionDuration]);
+  }, [goToSection]);
 
   return (
     <SectionTransitionContext.Provider

@@ -41,7 +41,7 @@ export function ProjectsScene() {
     <section
       id="projects"
       aria-label="Scene 05: Selected Projects"
-      className="relative flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-canvas bg-architectural-grid pt-[var(--nav-height)] select-none"
+      className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden bg-canvas bg-architectural-grid py-12 sm:py-16 lg:py-20"
     >
       {/* Continuous Ambient Falling Technology Pills Rain (strictly active project stack) */}
       <FallingTechPillsRain
@@ -56,7 +56,7 @@ export function ProjectsScene() {
         className="pointer-events-none absolute -top-32 right-1/4 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(200,255,0,0.07)_0%,transparent_70%)] blur-3xl z-10"
       />
 
-      <Container className="relative z-20 flex flex-1 flex-col justify-between py-2 sm:py-4 lg:py-5 h-[calc(100svh-var(--nav-height))]">
+      <Container className="relative z-20 flex flex-1 flex-col justify-between py-2 sm:py-4">
         {/* Top Meta Bar */}
         <motion.div
           initial={prefersReducedMotion ? false : "hidden"}

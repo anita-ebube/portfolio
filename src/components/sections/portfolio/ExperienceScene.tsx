@@ -90,7 +90,7 @@ export function ExperienceScene() {
     <section
       id="experience"
       aria-label="Scene 03: Education, Leadership & Achievements"
-      className="relative flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-canvas bg-architectural-grid pt-[var(--nav-height)] select-none"
+      className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden bg-canvas bg-architectural-grid py-12 sm:py-16 lg:py-20"
     >
       {/* Ambient Lighting Gradient */}
       <div
@@ -98,11 +98,11 @@ export function ExperienceScene() {
         className="pointer-events-none absolute -bottom-32 left-1/4 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(200,255,0,0.05)_0%,transparent_70%)] blur-3xl"
       />
 
-      <Container className="relative z-20 flex flex-1 flex-col justify-between py-3 sm:py-5 lg:py-6 h-[calc(100svh-var(--nav-height))]">
+      <Container className="relative z-20 flex flex-1 flex-col justify-between py-2 sm:py-4">
         {/* Top Meta Bar */}
         <motion.div
           initial={prefersReducedMotion ? false : "hidden"}
-          animate={isActive ? "visible" : "hidden"}
+          animate="visible"
           variants={childItemVariants}
           custom={0.05}
           className="flex items-center justify-between gap-3 pb-2 sm:pb-3 border-b border-[rgba(243,242,238,0.08)]"
@@ -119,10 +119,7 @@ export function ExperienceScene() {
         </motion.div>
 
         {/* Center Stage: 3 Monumental Architectural Milestones */}
-        <div
-          data-allow-scroll="true"
-          className="my-auto w-full max-h-[calc(100svh-140px)] sm:max-h-none overflow-y-auto lg:overflow-visible no-scrollbar py-1 sm:py-2"
-        >
+        <div className="my-auto w-full py-2">
           {/* Connecting Timeline Axis Rail across Desktop */}
           <div className="hidden lg:grid grid-cols-3 gap-6 xl:gap-8 px-2 mb-4">
             <div className="flex items-center gap-2">

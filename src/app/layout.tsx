@@ -70,9 +70,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} dark h-full`}
+      className={`${syne.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} dark`}
     >
-      <body className="min-h-full flex flex-col bg-canvas text-ink antialiased">
+      <body className="min-h-screen flex flex-col bg-canvas text-ink antialiased">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:rounded-md focus:bg-lime focus:px-4 focus:py-2 focus:text-canvas focus:font-mono focus:text-xs focus:font-bold shadow-lg"

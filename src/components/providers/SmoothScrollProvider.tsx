@@ -72,9 +72,8 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
-    // On the single-page full-screen presentation or with reduced motion,
-    // avoid running an unnecessary continuous Lenis RAF loop on window.
-    if (prefersReducedMotion || pathname === "/") {
+    // When reduced motion is requested, avoid running continuous Lenis RAF loop.
+    if (prefersReducedMotion) {
       lenisRef.current?.destroy();
       lenisRef.current = null;
       return;

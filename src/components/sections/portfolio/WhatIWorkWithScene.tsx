@@ -103,7 +103,7 @@ export function WhatIWorkWithScene() {
     <section
       id="work-with"
       aria-label="Scene 04: What I Work With"
-      className="relative flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-canvas bg-architectural-grid pt-[var(--nav-height)] select-none"
+      className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden bg-canvas bg-architectural-grid py-12 sm:py-16 lg:py-20"
     >
       {/* Ambient Lighting Accents */}
       <div
@@ -115,7 +115,7 @@ export function WhatIWorkWithScene() {
         className="pointer-events-none absolute -bottom-32 right-1/4 h-[480px] w-[480px] rounded-full bg-[radial-gradient(circle,rgba(110,231,183,0.05)_0%,transparent_70%)] blur-3xl z-10"
       />
 
-      <Container className="relative z-20 flex flex-1 flex-col justify-between py-2 sm:py-3 lg:py-4 h-[calc(100svh-var(--nav-height))]">
+      <Container className="relative z-20 flex flex-1 flex-col justify-between py-2 sm:py-4">
         {/* Top Meta Bar */}
         <motion.div
           initial={prefersReducedMotion ? false : "hidden"}
@@ -183,10 +183,7 @@ export function WhatIWorkWithScene() {
         </div>
 
         {/* Dual Major Visual Groups: Balanced Presentation */}
-        <div
-          data-allow-scroll="true"
-          className="my-auto grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 items-stretch max-h-[calc(100svh-175px)] sm:max-h-none overflow-y-auto lg:overflow-visible no-scrollbar py-1"
-        >
+        <div className="my-auto grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 items-stretch py-2">
           {/* GROUP 1: FRONTEND DEVELOPMENT */}
           <motion.div
             initial={prefersReducedMotion ? false : "hidden"}

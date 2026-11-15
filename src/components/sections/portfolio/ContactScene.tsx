@@ -54,7 +54,7 @@ export function ContactScene() {
     <section
       id="contact"
       aria-label="Scene 06: Contact & Dialogue"
-      className="relative flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-canvas bg-architectural-grid pt-[var(--nav-height)] select-none"
+      className="relative flex min-h-screen w-full flex-col justify-between overflow-hidden bg-canvas bg-architectural-grid py-12 sm:py-16 lg:py-20"
     >
       {/* Ambient Lighting Gradient */}
       <div

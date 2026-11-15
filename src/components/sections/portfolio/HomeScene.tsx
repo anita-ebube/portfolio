@@ -70,7 +70,7 @@ export function HomeScene() {
     <section
       id="home"
       aria-label="Scene 01: Home"
-      className="relative flex h-[100svh] w-full flex-col justify-between overflow-hidden bg-canvas bg-architectural-grid pt-[var(--nav-height)] select-none"
+      className="relative flex min-h-[calc(100svh-var(--nav-height))] w-full flex-col justify-between overflow-hidden bg-canvas bg-architectural-grid pt-[var(--nav-height)]"
     >
       {/* Atmospheric Radial Vignette */}
       <div
