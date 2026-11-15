@@ -195,7 +195,7 @@ export function ContactScene() {
           initial={prefersReducedMotion ? false : "hidden"}
           animate="visible"
           variants={itemVariants}
-          className="border-t border-[rgba(243,242,238,0.08)] flex items-center justify-between pt-2.5 sm:pt-3 text-[11px] text-ink-muted font-mono"
+          className="border-t border-[rgba(243,242,238,0.08)] flex flex-col sm:flex-row items-center sm:justify-between gap-2.5 pt-3 text-[10px] sm:text-[11px] text-ink-muted font-mono text-center sm:text-left pb-2 sm:pb-0"
         >
           <span>© 2026 ANITA UGOEBILLAH · ALL RIGHTS RESERVED</span>
 

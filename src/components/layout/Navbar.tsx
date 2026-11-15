@@ -230,10 +230,10 @@ export function Navbar() {
             animate="open"
             exit="closed"
             variants={mobileDrawerVariants}
-            className="fixed inset-0 z-40 flex flex-col justify-between bg-[rgba(7,8,9,0.96)] pt-24 pb-10 backdrop-blur-2xl md:hidden"
+            className="fixed inset-0 z-40 flex flex-col justify-between bg-[rgba(7,8,9,0.96)] pt-20 pb-8 backdrop-blur-2xl md:hidden overflow-y-auto"
           >
-            <Container className="flex flex-1 flex-col justify-between">
-              <nav aria-label="Mobile Primary Navigation" className="mt-4">
+            <Container className="flex flex-1 flex-col justify-between min-h-min">
+              <nav aria-label="Mobile Primary Navigation" className="mt-2">
                 <ul className="divide-y divide-[rgba(243,242,238,0.08)] border-y border-[rgba(243,242,238,0.08)]">
                   {NAV_ITEMS.map((item) => {
                     const isActive = isSinglePage && sectionTransition
@@ -260,7 +260,7 @@ export function Navbar() {
                             setDrawerOpenForPath(null);
                           }}
                           aria-current={isActive ? "page" : undefined}
-                          className="group flex w-full items-center justify-between py-5 text-left cursor-pointer"
+                          className="group flex w-full items-center justify-between py-3.5 sm:py-4.5 text-left cursor-pointer"
                         >
                           <div className="flex items-baseline gap-4">
                             <span
