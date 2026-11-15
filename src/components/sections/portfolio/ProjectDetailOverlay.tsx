@@ -84,8 +84,10 @@ export function ProjectDetailOverlay({
                   className="h-2 w-2 rounded-full"
                   style={{ backgroundColor: project.accentColor }}
                 />
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-lime font-semibold">
-                  PROJECT {project.number} // {project.category}
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-lime font-semibold flex items-center gap-1.5">
+                  <span>Project {project.number}</span>
+                  <span className="text-ink-muted">·</span>
+                  <span className="text-ink-secondary">{project.category}</span>
                 </span>
               </div>
 

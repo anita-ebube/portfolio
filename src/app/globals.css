@@ -7,10 +7,10 @@
   --bg-elevated: #14171c;
   --bg-glass: rgba(13, 15, 18, 0.72);
 
-  /* Typography */
+  /* Typography — WCAG AA Compliant High-Contrast Palette */
   --text-primary: #f3f2ee;
-  --text-secondary: #a1a6ae;
-  --text-muted: #666c75;
+  --text-secondary: #b5bac2;
+  --text-muted: #8e95a0;
 
   /* Brand Accent — Electric Lime */
   --accent-lime: #c8ff00;

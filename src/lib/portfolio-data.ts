@@ -56,29 +56,28 @@ export const SITE_IDENTITY = {
   fullName: "Anita Ugoebillah",
   monogram: "ANITA",
   discipline: "PRODUCT MANAGEMENT × FRONTEND CRAFT",
-  heroHeadline: "I turn ideas into digital experiences.",
+  heroHeadline: "I plan products and build them in React.",
   heroSupporting:
-    "Bringing product thinking, technology and creativity together to build meaningful digital experiences.",
+    "Computer Science graduate from UNN. I work across product discovery, user specifications, and frontend implementation with React, Next.js, and Supabase.",
   aboutHeadline:
-    "More than a job title. A mind that connects ideas, people and technology.",
+    "Product thinking paired with frontend execution.",
   aboutIntro: [
     "Hi, I'm Anita.",
-    "I'm a Computer Science graduate, Product Management enthusiast and Frontend Developer who enjoys being at the intersection of technology, creativity and problem-solving.",
-    "I love understanding how things work, identifying opportunities to make them better and turning ideas into meaningful digital experiences.",
-    "My journey in technology has taught me that building great products goes beyond writing code. It requires understanding people, asking the right questions, making thoughtful decisions and bringing the right people together to make things happen.",
+    "I'm a Computer Science graduate from the University of Nigeria, Nsukka (UNN) working across product management and frontend engineering. I talk to users, write clear specifications, and build responsive web applications in React.",
+    "From managing online dues and clearance for student bodies to shipping customer ordering for local lounges, I focus on building software that solves practical problems for real people.",
   ],
   philosophy:
-    "I don't just want to build things that work. I want to build things that matter.",
-  contactHeadline: "Have an idea? Let's make it happen.",
+    "Talk to users first, write clear specifications, and ship software that solves real problems.",
+  contactHeadline: "Hiring a PM or frontend developer?",
   contactSupporting:
-    "I'm always interested in meaningful conversations, interesting ideas and opportunities to build something impactful.",
+    "Whether you're hiring for an associate PM or frontend role, or want to discuss an upcoming project, my inbox is open.",
   email: "Oluebubechukwuanita@gmail.com",
   socials: {
     github: "https://github.com/anita-ebube",
     linkedin: "https://www.linkedin.com/in/oluebubechukwu-ugoebillah-9220133a6?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
     twitter: "https://x.com/nita_script?s=11",
   },
-  statusLabel: "EDITION 2026 // PM × FE",
+  statusLabel: "UNN CS GRADUATE // PM & FRONTEND",
 } as const;
 
 export const EDUCATION_DATA: EducationData = {
@@ -86,7 +85,8 @@ export const EDUCATION_DATA: EducationData = {
   institution: "University of Nigeria, Nsukka (UNN)",
   degree: "B.Sc. Computer Science",
   period: "2020 — 2024",
-  summary: "Graduated with a Bachelor of Science degree in Computer Science.",
+  summary:
+    "Four-year foundational degree covering software systems, algorithms, database architecture, and human-computer interaction.",
 };
 
 export const LEADERSHIP_DATA: LeadershipPosition[] = [

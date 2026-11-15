@@ -65,13 +65,13 @@ export function ProjectsScene() {
           className="flex items-center justify-between gap-3 pb-2 border-b border-[rgba(243,242,238,0.08)]"
         >
           <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
+            <span className="h-1.5 w-1.5 rounded-full bg-lime" />
             <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-lime font-semibold">
-              05 // SELECTED PROJECTS
+              Projects
             </span>
           </div>
           <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted">
-            FOUR AUTHENTIC PROJECTS · VERIFIED SPECIFICATIONS
+            4 Shipped Production Projects
           </span>
         </motion.div>
 
@@ -89,15 +89,11 @@ export function ProjectsScene() {
                 className="space-y-3 sm:space-y-4"
               >
                 {/* 1. Project Number & Category Badge */}
-                {/* <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(200,255,0,0.3)] bg-[rgba(200,255,0,0.06)] px-3 py-1">
-                  <span
-                    className="h-1.5 w-1.5 rounded-full"
-                    style={{ backgroundColor: selectedProject.accentColor }}
-                  />
-                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-lime font-semibold">
-                    PROJECT {selectedProject.number} // {selectedProject.category}
-                  </span>
-                </div> */}
+                <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(243,242,238,0.12)] bg-[rgba(13,15,18,0.65)] px-3 py-1 font-mono text-[10px] uppercase tracking-wider">
+                  <span className="font-semibold text-lime">{selectedProject.number}</span>
+                  <span className="text-ink-muted">·</span>
+                  <span className="text-ink-secondary">{selectedProject.category}</span>
+                </div>
 
                 {/* 2. Project Name — Prominent & Bold */}
                 <div>
@@ -202,11 +198,11 @@ export function ProjectsScene() {
                     }`}
                   >
                     <span
-                      className={`font-mono text-[8.5px] uppercase tracking-wider ${
+                      className={`font-mono text-[9px] uppercase tracking-wider ${
                         isActive ? "text-lime font-bold" : "text-ink-muted"
                       }`}
                     >
-                      {proj.number} //
+                      {proj.number}
                     </span>
                     <span
                       className={`font-display text-[12px] sm:text-[13px] font-semibold truncate w-full ${
@@ -234,7 +230,7 @@ export function ProjectsScene() {
             onClick={nextSection}
             className="group inline-flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-secondary hover:text-lime transition-colors cursor-pointer"
           >
-            <span>Proceed to Contact &amp; Dialogue</span>
+            <span>Proceed to Contact</span>
             <ArrowUpRight className="h-3.5 w-3.5 text-lime transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </button>
 
@@ -243,7 +239,7 @@ export function ProjectsScene() {
             onClick={() => goToSection(3)}
             className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted hover:text-ink transition-colors cursor-pointer"
           >
-            ↑ Back to What I Work With
+            Back to What I Work With
           </button>
         </motion.div>
       </Container>

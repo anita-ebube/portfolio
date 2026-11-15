@@ -110,8 +110,8 @@ export function Navbar() {
               <span className="font-display text-base font-bold tracking-[0.06em] text-ink">
                 {SITE_IDENTITY.monogram}
               </span>
-              <span className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.22em] text-ink-muted">
-                PM × FE
+              <span className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-ink-muted">
+                Product &amp; Frontend
               </span>
             </span>
           </Link>
@@ -153,13 +153,6 @@ export function Navbar() {
                       className="absolute inset-0 rounded-full bg-lime shadow-[0_0_24px_rgba(200,255,0,0.22)]"
                     />
                   ) : null}
-                  <span
-                    className={`relative z-10 font-mono text-[10px] ${
-                      isActive ? "text-canvas/75" : "text-ink-muted"
-                    }`}
-                  >
-                    {item.index}
-                  </span>
                   <span className="relative z-10">{item.label}</span>
                 </button>
               );
@@ -174,7 +167,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               download="Anita_Ugoebillah_CV.pdf"
-              className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(243,242,238,0.16)] bg-[rgba(13,15,18,0.65)] px-3 sm:px-3.5 py-1.5 font-mono text-[10.5px] sm:text-[11px] uppercase tracking-[0.16em] text-ink-secondary transition-all duration-200 hover:border-lime hover:text-lime hover:bg-[rgba(200,255,0,0.06)] cursor-pointer"
+              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-full border border-[rgba(243,242,238,0.16)] bg-[rgba(13,15,18,0.65)] px-3.5 py-1.5 font-mono text-[10.5px] sm:text-[11px] uppercase tracking-[0.16em] text-ink-secondary transition-all duration-200 hover:border-lime hover:text-lime hover:bg-[rgba(200,255,0,0.06)] cursor-pointer"
               aria-label="Download or view Anita's CV (PDF)"
             >
               <span>CV</span>
@@ -188,7 +181,7 @@ export function Navbar() {
                   sectionTransition.goToSection(5);
                 }
               }}
-              className="hidden lg:inline-flex items-center gap-2 rounded-full border border-[rgba(243,242,238,0.16)] bg-[rgba(13,15,18,0.65)] px-4 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors duration-200 hover:border-lime hover:text-lime cursor-pointer"
+              className="hidden lg:inline-flex min-h-[44px] items-center gap-2 rounded-full border border-[rgba(243,242,238,0.16)] bg-[rgba(13,15,18,0.65)] px-4 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors duration-200 hover:border-lime hover:text-lime cursor-pointer"
             >
               <span>Let&apos;s Connect</span>
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -206,7 +199,7 @@ export function Navbar() {
               aria-label={
                 mobileOpen ? "Close navigation menu" : "Open navigation menu"
               }
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(243,242,238,0.16)] bg-[rgba(13,15,18,0.8)] text-ink backdrop-blur-md transition-colors hover:border-lime hover:text-lime md:hidden cursor-pointer"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(243,242,238,0.16)] bg-[rgba(13,15,18,0.8)] text-ink backdrop-blur-md transition-colors hover:border-lime hover:text-lime md:hidden cursor-pointer"
             >
               {mobileOpen ? (
                 <X className="h-4.5 w-4.5" aria-hidden="true" />
@@ -323,7 +316,7 @@ export function Navbar() {
                         DOWNLOAD CV
                       </span>
                       <span className="block font-mono text-[9.5px] uppercase tracking-wider text-ink-muted">
-                        PDF · 136 KB · Verified Resume
+                        PDF · 136 KB · Resume
                       </span>
                     </div>
                   </div>

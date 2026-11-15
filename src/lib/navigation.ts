@@ -9,11 +9,11 @@ export interface NavItem {
 export const SITE_IDENTITY = {
   name: "Anita",
   monogram: "ANITA",
-  discipline: "PRODUCT THINKING × FRONTEND ENGINEERING",
-  headline: "I turn ideas into digital experiences.",
+  discipline: "PRODUCT MANAGEMENT × FRONTEND CRAFT",
+  headline: "I plan products and build them in React.",
   supportingCopy:
-    "Bringing product thinking, technology and creativity together to build meaningful digital experiences.",
-  statusLabel: "EDITION 2026 // PRODUCT & FRONTEND",
+    "Computer Science graduate from UNN. I work across product discovery, user specifications, and frontend implementation with React, Next.js, and Supabase.",
+  statusLabel: "UNN CS GRADUATE // PRODUCT & FRONTEND",
 } as const;
 
 export const NAV_ITEMS: readonly NavItem[] = [
@@ -22,14 +22,14 @@ export const NAV_ITEMS: readonly NavItem[] = [
     label: "Home",
     href: "#home",
     sectionIndex: 0,
-    description: "Hero stage & interactive sculpture",
+    description: "Overview & interactive 3D stage",
   },
   {
     index: "02",
     label: "About",
     href: "#about",
     sectionIndex: 1,
-    description: "Perspective, craft & approach",
+    description: "Background, approach & CV",
   },
   {
     index: "03",
@@ -50,13 +50,13 @@ export const NAV_ITEMS: readonly NavItem[] = [
     label: "Projects",
     href: "#projects",
     sectionIndex: 4,
-    description: "Selected products & verified case studies",
+    description: "Selected web applications & shipped platforms",
   },
   {
     index: "06",
     label: "Contact",
     href: "#contact",
     sectionIndex: 5,
-    description: "Initiate dialogue & connect",
+    description: "Email & professional inquiries",
   },
 ] as const;

@@ -50,10 +50,10 @@ export function AboutHero() {
         {/* Top Eyebrow Bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 pb-6 sm:pb-8">
           <div className="flex items-center gap-3">
-            <StatusBeacon label="ABOUT // PERSPECTIVE & CRAFT" />
+            <StatusBeacon label="About Anita Ugoebillah" />
           </div>
           <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-muted">
-            01 // BIOGRAPHY
+            Biography
           </span>
         </div>
 
@@ -185,7 +185,7 @@ export function AboutHero() {
           </button>
 
           <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">
-            SECTION 02 // CHRONICLE
+            Chronicle
           </span>
         </div>
       </Container>

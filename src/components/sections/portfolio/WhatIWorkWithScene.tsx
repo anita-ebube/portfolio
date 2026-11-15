@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
-import { ArrowUpRight, Code2, Compass, Layers, Sparkles, Terminal, Wrench } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { ArrowUpRight, Code2, Compass } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { WHAT_I_WORK_WITH } from "@/lib/portfolio-data";
 import { EASE_EDITORIAL, usePrefersReducedMotion } from "@/lib/motion";
 import { useSectionTransition } from "@/components/portfolio/SectionTransitionContext";
 
@@ -13,31 +12,92 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.06,
-      delayChildren: 0.05,
+      staggerChildren: 0.05,
+      delayChildren: 0.04,
     },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0, y: 10 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.45,
       ease: EASE_EDITORIAL,
     },
   },
 };
 
+interface KeyProofSkill {
+  name: string;
+  proof: string;
+}
+
+const FRONTEND_PROOF_SKILLS: KeyProofSkill[] = [
+  {
+    name: "React & Tailwind CSS",
+    proof: "Production UI across SilentKrowd, NIHSA, NACOS Dues & System Vet",
+  },
+  {
+    name: "Supabase",
+    proof: "Realtime orders, reservation flow & menu sync in SilentKrowd",
+  },
+  {
+    name: "Firebase",
+    proof: "Online dues payment & verification pipeline in NACOS Dues",
+  },
+  {
+    name: "Next.js",
+    proof: "Component-driven architecture, SSR & high-performance frontend",
+  },
+];
+
+const FRONTEND_ALL_SKILLS = [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "Vue.js",
+  "Laravel",
+  "MySQL",
+  "Git",
+  "GitHub",
+];
+
+const PRODUCT_PROOF_SKILLS: KeyProofSkill[] = [
+  {
+    name: "Requirements Gathering & User Stories",
+    proof: "Defined temporary-to-permanent clearance workflows in NACOS Dues",
+  },
+  {
+    name: "Product Roadmapping & Prioritisation",
+    proof: "Feature scoping & customer checkout workflows for SilentKrowd",
+  },
+  {
+    name: "Agile & Scrum",
+    proof: "Sprint delivery, UX teardowns & iterative execution as HNG Finalist",
+  },
+  {
+    name: "ClickUp & Figma",
+    proof: "Backlog management, wireframes, user journeys & developer handoffs",
+  },
+];
+
+const PRODUCT_ALL_SKILLS = [
+  "Product Strategy",
+  "Product Discovery",
+  "Backlog Management",
+  "Sprint Planning",
+  "Stakeholder Management",
+  "Product Documentation",
+];
+
 export function WhatIWorkWithScene() {
   const [mobileActiveCategory, setMobileActiveCategory] = useState<"frontend" | "product">("frontend");
   const prefersReducedMotion = usePrefersReducedMotion();
   const { goToSection, nextSection } = useSectionTransition();
-
-  const frontendData = WHAT_I_WORK_WITH.find((c) => c.id === "frontend") || WHAT_I_WORK_WITH[0];
-  const productData = WHAT_I_WORK_WITH.find((c) => c.id === "product") || WHAT_I_WORK_WITH[1];
 
   return (
     <section
@@ -64,13 +124,13 @@ export function WhatIWorkWithScene() {
           className="flex items-center justify-between gap-3 pb-2 border-b border-[rgba(243,242,238,0.08)]"
         >
           <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-lime font-semibold">
-              04 // WHAT I WORK WITH
+            <span className="h-1.5 w-1.5 rounded-full bg-lime" />
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-lime">
+              What I Work With
             </span>
           </div>
           <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted">
-            BALANCED CAPABILITIES · FRONTEND ENGINEERING × PRODUCT MANAGEMENT
+            Frontend Engineering × Product Management
           </span>
         </motion.div>
 
@@ -81,7 +141,7 @@ export function WhatIWorkWithScene() {
               What I Work With
             </h2>
             <p className="mt-0.5 text-xs sm:text-[13.5px] text-ink-secondary max-w-2xl leading-relaxed">
-              Equally balanced across frontend engineering and product management craft.
+              Capabilities across product management and frontend engineering, verified through shipped production software.
             </p>
           </div>
 
@@ -90,7 +150,7 @@ export function WhatIWorkWithScene() {
             <button
               type="button"
               onClick={() => setMobileActiveCategory("frontend")}
-              className={`relative px-3 py-1 font-mono text-[10px] uppercase tracking-wider transition-colors duration-200 cursor-pointer ${
+              className={`relative px-3.5 py-1 font-mono text-[10.5px] uppercase tracking-wider transition-colors duration-200 cursor-pointer ${
                 mobileActiveCategory === "frontend" ? "text-canvas font-bold" : "text-ink-secondary"
               }`}
             >
@@ -101,12 +161,12 @@ export function WhatIWorkWithScene() {
                   transition={{ duration: 0.2 }}
                 />
               )}
-              <span className="relative z-10">01 Frontend (14)</span>
+              <span className="relative z-10">Frontend</span>
             </button>
             <button
               type="button"
               onClick={() => setMobileActiveCategory("product")}
-              className={`relative px-3 py-1 font-mono text-[10px] uppercase tracking-wider transition-colors duration-200 cursor-pointer ${
+              className={`relative px-3.5 py-1 font-mono text-[10.5px] uppercase tracking-wider transition-colors duration-200 cursor-pointer ${
                 mobileActiveCategory === "product" ? "text-canvas font-bold" : "text-ink-secondary"
               }`}
             >
@@ -117,100 +177,101 @@ export function WhatIWorkWithScene() {
                   transition={{ duration: 0.2 }}
                 />
               )}
-              <span className="relative z-10">02 Product (13)</span>
+              <span className="relative z-10">Product Management</span>
             </button>
           </div>
         </div>
 
-        {/* Dual Major Visual Groups: 50/50 Balanced Presentation */}
-        <div className="my-auto grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 items-stretch">
+        {/* Dual Major Visual Groups: Balanced Presentation */}
+        <div
+          data-allow-scroll="true"
+          className="my-auto grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 items-stretch max-h-[calc(100svh-175px)] sm:max-h-none overflow-y-auto lg:overflow-visible no-scrollbar py-1"
+        >
           {/* GROUP 1: FRONTEND DEVELOPMENT */}
           <motion.div
             initial={prefersReducedMotion ? false : "hidden"}
             animate="visible"
             variants={containerVariants}
-            className={`flex flex-col justify-between rounded-2xl border border-[rgba(243,242,238,0.12)] bg-[rgba(13,15,18,0.72)] p-3.5 sm:p-4 lg:p-5 backdrop-blur-xl relative overflow-hidden transition-all duration-300 hover:border-[rgba(200,255,0,0.4)] ${
+            className={`flex flex-col justify-between rounded-2xl border border-[rgba(243,242,238,0.12)] bg-[rgba(13,15,18,0.75)] p-4 sm:p-5 lg:p-5.5 backdrop-blur-xl relative overflow-hidden transition-all duration-300 hover:border-[rgba(200,255,0,0.35)] ${
               mobileActiveCategory === "frontend" ? "block" : "hidden sm:flex"
             }`}
           >
-            {/* Ambient Corner Accent */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -top-12 -right-12 h-28 w-28 rounded-full bg-lime/10 blur-xl"
             />
 
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-3.5 sm:space-y-4">
               {/* Category Header */}
               <div className="flex items-center justify-between border-b border-[rgba(243,242,238,0.08)] pb-2.5">
-                <div className="flex items-center gap-2">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[rgba(200,255,0,0.12)] text-lime">
-                    <Code2 className="h-3.5 w-3.5" />
+                <div className="flex items-center gap-2.5">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[rgba(200,255,0,0.12)] text-lime">
+                    <Code2 className="h-4 w-4" />
                   </span>
                   <div>
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-lime font-bold">
-                      01 // ENGINEERING
-                    </span>
                     <h3 className="font-display text-base sm:text-lg font-bold text-ink leading-tight">
                       Frontend Development
                     </h3>
+                    <p className="font-mono text-[9.5px] uppercase tracking-wider text-ink-muted">
+                      Applied in production software
+                    </p>
                   </div>
                 </div>
-                <span className="font-mono text-[9px] uppercase tracking-wider text-ink-muted rounded-full border border-[rgba(243,242,238,0.1)] px-2.5 py-0.5 bg-canvas/60">
-                  14 Technologies
-                </span>
               </div>
 
-              {/* Subgroup 1: Languages and Frontend Technologies */}
-              <div>
-                <div className="flex items-center gap-1.5 mb-2">
-                  <span className="h-1 w-1 rounded-full bg-lime animate-pulse" />
-                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink-muted">
-                    LANGUAGES &amp; FRONTEND TECHNOLOGIES
-                  </span>
+              {/* Core Skills Tied Directly to Practical Proof */}
+              <div className="space-y-2">
+                <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink-muted flex items-center gap-1.5">
+                  <span className="h-1 w-1 rounded-full bg-lime" />
+                  <span>KEY TECHNOLOGIES &amp; SHIPPED PROOF</span>
                 </div>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {frontendData.subgroups[0].skills.map((tech) => (
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {FRONTEND_PROOF_SKILLS.map((item) => (
                     <motion.div
-                      key={tech}
+                      key={item.name}
                       variants={itemVariants}
-                      whileHover={prefersReducedMotion ? {} : { scale: 1.03, y: -1 }}
-                      className="group inline-flex items-center gap-1.5 rounded-full border border-[rgba(243,242,238,0.14)] bg-[rgba(18,21,26,0.85)] px-3 py-1 sm:px-3.5 sm:py-1.5 text-xs font-mono font-medium text-ink transition-all duration-200 hover:border-lime hover:bg-[rgba(200,255,0,0.08)] hover:text-lime cursor-default shadow-sm"
+                      className="group rounded-xl border border-[rgba(243,242,238,0.1)] bg-[rgba(18,21,26,0.7)] p-2.5 sm:p-3 transition-colors hover:border-lime/40 hover:bg-[rgba(200,255,0,0.04)]"
                     >
-                      <span className="h-1.5 w-1.5 rounded-full bg-lime/60 group-hover:bg-lime group-hover:shadow-[0_0_8px_#c8ff00] transition-colors" />
-                      <span>{tech}</span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="h-1.5 w-1.5 rounded-full bg-lime shrink-0" />
+                        <span className="font-mono text-xs font-semibold text-ink group-hover:text-lime transition-colors">
+                          {item.name}
+                        </span>
+                      </div>
+                      <p className="mt-1 text-[11px] sm:text-[11.5px] text-ink-secondary leading-snug">
+                        {item.proof}
+                      </p>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
-              {/* Subgroup 2: Backend, Databases and Development Tools */}
+              {/* Complementary Tools & Stack */}
               <div>
-                <div className="flex items-center gap-1.5 mb-2">
+                <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink-muted flex items-center gap-1.5 mb-2">
                   <span className="h-1 w-1 rounded-full bg-ink-muted" />
-                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink-muted">
-                    BACKEND, DATABASES &amp; TOOLS
-                  </span>
+                  <span>ADDITIONAL TECHNOLOGIES &amp; TOOLS</span>
                 </div>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {frontendData.subgroups[1].skills.map((tech) => (
-                    <motion.div
+                <div className="flex flex-wrap gap-1.5">
+                  {FRONTEND_ALL_SKILLS.map((tech) => (
+                    <motion.span
                       key={tech}
                       variants={itemVariants}
-                      whileHover={prefersReducedMotion ? {} : { scale: 1.03, y: -1 }}
-                      className="group inline-flex items-center gap-1.5 rounded-full border border-[rgba(243,242,238,0.12)] bg-[rgba(15,17,21,0.8)] px-3 py-1 sm:px-3 sm:py-1.5 text-xs font-mono font-medium text-ink-secondary transition-all duration-200 hover:border-ink-secondary hover:text-ink hover:bg-[rgba(243,242,238,0.06)] cursor-default shadow-sm"
+                      whileHover={prefersReducedMotion ? {} : { scale: 1.03 }}
+                      className="inline-flex items-center rounded-full border border-[rgba(243,242,238,0.1)] bg-[rgba(15,17,21,0.7)] px-2.5 py-1 text-[11px] font-mono text-ink-secondary hover:text-ink hover:border-[rgba(243,242,238,0.25)] transition-colors cursor-default"
                     >
-                      <span className="h-1.5 w-1.5 rounded-full bg-white/40 group-hover:bg-ink transition-colors" />
-                      <span>{tech}</span>
-                    </motion.div>
+                      {tech}
+                    </motion.span>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Bottom Technical Telemetry */}
-            <div className="mt-3 sm:mt-4 pt-2.5 border-t border-[rgba(243,242,238,0.06)] flex items-center justify-between font-mono text-[8.5px] uppercase tracking-[0.16em] text-ink-muted">
-              <span>ARCHITECTURE // MODULAR · REACTIVE · ACCESSIBLE</span>
-              <span className="text-lime">CODE READY</span>
+            {/* Bottom Real Architecture Context */}
+            <div className="mt-3 sm:mt-4 pt-2.5 border-t border-[rgba(243,242,238,0.06)] flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.14em] text-ink-muted">
+              <span>Architecture: Modular, component-driven, responsive</span>
+              <span className="text-lime">Production Tested</span>
             </div>
           </motion.div>
 
@@ -219,91 +280,86 @@ export function WhatIWorkWithScene() {
             initial={prefersReducedMotion ? false : "hidden"}
             animate="visible"
             variants={containerVariants}
-            className={`flex flex-col justify-between rounded-2xl border border-[rgba(243,242,238,0.12)] bg-[rgba(13,15,18,0.72)] p-3.5 sm:p-4 lg:p-5 backdrop-blur-xl relative overflow-hidden transition-all duration-300 hover:border-[rgba(110,231,183,0.4)] ${
+            className={`flex flex-col justify-between rounded-2xl border border-[rgba(243,242,238,0.12)] bg-[rgba(13,15,18,0.75)] p-4 sm:p-5 lg:p-5.5 backdrop-blur-xl relative overflow-hidden transition-all duration-300 hover:border-[rgba(110,231,183,0.35)] ${
               mobileActiveCategory === "product" ? "block" : "hidden sm:flex"
             }`}
           >
-            {/* Ambient Corner Accent */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -top-12 -right-12 h-28 w-28 rounded-full bg-[#6ee7b7]/10 blur-xl"
             />
 
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-3.5 sm:space-y-4">
               {/* Category Header */}
               <div className="flex items-center justify-between border-b border-[rgba(243,242,238,0.08)] pb-2.5">
-                <div className="flex items-center gap-2">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[rgba(110,231,183,0.12)] text-[#6ee7b7]">
-                    <Compass className="h-3.5 w-3.5" />
+                <div className="flex items-center gap-2.5">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[rgba(110,231,183,0.12)] text-[#6ee7b7]">
+                    <Compass className="h-4 w-4" />
                   </span>
                   <div>
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#6ee7b7] font-bold">
-                      02 // STRATEGY
-                    </span>
                     <h3 className="font-display text-base sm:text-lg font-bold text-ink leading-tight">
                       Product Management
                     </h3>
+                    <p className="font-mono text-[9.5px] uppercase tracking-wider text-ink-muted">
+                      Validated in real workflows
+                    </p>
                   </div>
                 </div>
-                <span className="font-mono text-[9px] uppercase tracking-wider text-ink-muted rounded-full border border-[rgba(243,242,238,0.1)] px-2.5 py-0.5 bg-canvas/60">
-                  13 Capabilities &amp; Tools
-                </span>
               </div>
 
-              {/* Subgroup 1: Product Management Capabilities */}
-              <div>
-                <div className="flex items-center gap-1.5 mb-2">
-                  <span className="h-1 w-1 rounded-full bg-[#6ee7b7] animate-pulse" />
-                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink-muted">
-                    PRODUCT MANAGEMENT CAPABILITIES
-                  </span>
+              {/* Core Capabilities Tied Directly to Practical Proof */}
+              <div className="space-y-2">
+                <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink-muted flex items-center gap-1.5">
+                  <span className="h-1 w-1 rounded-full bg-[#6ee7b7]" />
+                  <span>KEY CAPABILITIES &amp; PRACTICAL PROOF</span>
                 </div>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {productData.subgroups[0].skills.map((skill) => (
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {PRODUCT_PROOF_SKILLS.map((item) => (
                     <motion.div
-                      key={skill}
+                      key={item.name}
                       variants={itemVariants}
-                      whileHover={prefersReducedMotion ? {} : { scale: 1.03, y: -1 }}
-                      className="group inline-flex items-center gap-1.5 rounded-full border border-[rgba(243,242,238,0.14)] bg-[rgba(18,21,26,0.85)] px-3 py-1 sm:px-3.5 sm:py-1.5 text-xs font-sans font-medium text-ink transition-all duration-200 hover:border-[#6ee7b7] hover:bg-[rgba(110,231,183,0.08)] hover:text-[#6ee7b7] cursor-default shadow-sm"
+                      className="group rounded-xl border border-[rgba(243,242,238,0.1)] bg-[rgba(18,21,26,0.7)] p-2.5 sm:p-3 transition-colors hover:border-[#6ee7b7]/40 hover:bg-[rgba(110,231,183,0.04)]"
                     >
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#6ee7b7]/60 group-hover:bg-[#6ee7b7] group-hover:shadow-[0_0_8px_#6ee7b7] transition-colors" />
-                      <span>{skill}</span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#6ee7b7] shrink-0" />
+                        <span className="font-mono text-xs font-semibold text-ink group-hover:text-[#6ee7b7] transition-colors">
+                          {item.name}
+                        </span>
+                      </div>
+                      <p className="mt-1 text-[11px] sm:text-[11.5px] text-ink-secondary leading-snug">
+                        {item.proof}
+                      </p>
                     </motion.div>
                   ))}
                 </div>
               </div>
 
-              {/* Subgroup 2: Product Management Tools */}
+              {/* Complementary Capabilities & Tools */}
               <div>
-                <div className="flex items-center gap-1.5 mb-2">
-                  <span className="h-1 w-1 rounded-full bg-[#6ee7b7]" />
-                  <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink-muted">
-                    PRODUCT MANAGEMENT TOOLS
-                  </span>
+                <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink-muted flex items-center gap-1.5 mb-2">
+                  <span className="h-1 w-1 rounded-full bg-ink-muted" />
+                  <span>ADDITIONAL CAPABILITIES &amp; TOOLS</span>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {productData.subgroups[1].skills.map((tool) => (
-                    <motion.div
-                      key={tool}
+                <div className="flex flex-wrap gap-1.5">
+                  {PRODUCT_ALL_SKILLS.map((skill) => (
+                    <motion.span
+                      key={skill}
                       variants={itemVariants}
-                      whileHover={prefersReducedMotion ? {} : { scale: 1.03, y: -1 }}
-                      className="group inline-flex items-center gap-2 rounded-full border border-[rgba(110,231,183,0.3)] bg-[rgba(110,231,183,0.06)] px-4 py-1.5 text-xs font-display font-semibold text-ink transition-all duration-200 hover:border-[#6ee7b7] hover:bg-[rgba(110,231,183,0.14)] hover:text-[#6ee7b7] cursor-default shadow-sm"
+                      whileHover={prefersReducedMotion ? {} : { scale: 1.03 }}
+                      className="inline-flex items-center rounded-full border border-[rgba(243,242,238,0.1)] bg-[rgba(15,17,21,0.7)] px-2.5 py-1 text-[11px] font-sans text-ink-secondary hover:text-ink hover:border-[rgba(243,242,238,0.25)] transition-colors cursor-default"
                     >
-                      <span className="h-2 w-2 rounded-full bg-[#6ee7b7] shadow-[0_0_6px_#6ee7b7]" />
-                      <span>{tool}</span>
-                      <span className="font-mono text-[9px] uppercase text-[#6ee7b7]/80">
-                        {tool === "ClickUp" ? "Sprint / Backlog" : "Design / Spec"}
-                      </span>
-                    </motion.div>
+                      {skill}
+                    </motion.span>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Bottom Strategy Telemetry */}
-            <div className="mt-3 sm:mt-4 pt-2.5 border-t border-[rgba(243,242,238,0.06)] flex items-center justify-between font-mono text-[8.5px] uppercase tracking-[0.16em] text-ink-muted">
-              <span>DISCIPLINE // HUMAN-CENTERED · HYPOTHESIS-DRIVEN</span>
-              <span className="text-[#6ee7b7]">EXECUTION READY</span>
+            {/* Bottom Real Discipline Context */}
+            <div className="mt-3 sm:mt-4 pt-2.5 border-t border-[rgba(243,242,238,0.06)] flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.14em] text-ink-muted">
+              <span>Discipline: User discovery, specs &amp; iterative sprints</span>
+              <span className="text-[#6ee7b7]">Execution Focused</span>
             </div>
           </motion.div>
         </div>
@@ -320,7 +376,7 @@ export function WhatIWorkWithScene() {
             onClick={nextSection}
             className="group inline-flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-secondary hover:text-lime transition-colors cursor-pointer"
           >
-            <span>Proceed to Selected Projects</span>
+            <span>Proceed to Projects</span>
             <ArrowUpRight className="h-3.5 w-3.5 text-lime transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </button>
 
@@ -329,7 +385,7 @@ export function WhatIWorkWithScene() {
             onClick={() => goToSection(2)}
             className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted hover:text-ink transition-colors cursor-pointer"
           >
-            ↑ Back to Experience
+            Back to Experience
           </button>
         </motion.div>
       </Container>

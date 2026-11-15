@@ -38,7 +38,7 @@ export function PageScaffold({
         <div className="space-y-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <span className="font-mono text-xs uppercase tracking-[0.22em] text-ink-muted">
-              SECTION {index} {"//"} {SITE_IDENTITY.monogram}
+              {SITE_IDENTITY.name}
             </span>
             <StatusBeacon label={SITE_IDENTITY.statusLabel} />
           </div>

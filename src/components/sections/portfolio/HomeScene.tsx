@@ -11,7 +11,7 @@ import { EASE_EDITORIAL, usePrefersReducedMotion } from "@/lib/motion";
 import { SITE_IDENTITY } from "@/lib/portfolio-data";
 import { useSectionTransition } from "@/components/portfolio/SectionTransitionContext";
 
-const HEADLINE_LINES = ["I turn ideas", "into digital", "experiences."] as const;
+const HEADLINE_LINES = ["I plan products,", "and build them", "in React."] as const;
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -95,10 +95,8 @@ export function HomeScene() {
               variants={itemVariants}
               className="inline-flex max-w-full items-center gap-2 self-start rounded-full px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md"
             >
-              {/* <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-lime animate-pulse" /> */}
-              <p className="font-mono text-[9.5px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.2em] text-lime">
-                <span className="sm:hidden">PM × FE // PRODUCT &amp; FRONTEND</span>
-                <span className="hidden sm:inline">PRODUCT MANAGER × FRONTEND DEVELOPER</span>
+              <p className="font-sans text-xs font-semibold uppercase tracking-wider text-lime">
+                Product Manager &amp; Frontend Developer
               </p>
             </motion.div>
 
@@ -107,9 +105,9 @@ export function HomeScene() {
               variants={itemVariants}
               className="mt-3 font-display text-[clamp(2.15rem,5.2vw,4.8rem)] font-bold leading-[0.96] tracking-[-0.035em] text-ink sm:mt-4"
             >
-              <span className="block text-ink">I turn ideas</span>
-              <span className="block text-ink">into digital</span>
-              <span className="block text-lime">experiences.</span>
+              <span className="block text-ink">I plan products,</span>
+              <span className="block text-ink">and build them</span>
+              <span className="block text-lime">in React.</span>
             </motion.h1>
 
             {/* Mobile-only 3D Sculpture Placement */}
@@ -154,7 +152,7 @@ export function HomeScene() {
                 icon={<ArrowUpRight className="h-4 w-4" />}
                 onClick={() => goToSection(5)}
               >
-                Let&apos;s Connect
+                Get in Touch
               </Button>
             </motion.div>
           </motion.div>
@@ -190,7 +188,7 @@ export function HomeScene() {
           <button
             type="button"
             onClick={nextSection}
-            className="group inline-flex items-center gap-3 text-left font-mono text-[11px] uppercase tracking-[0.2em] text-ink-secondary transition-colors hover:text-lime cursor-pointer"
+            className="group inline-flex items-center gap-3 text-left font-sans text-xs uppercase tracking-wider text-ink-secondary transition-colors hover:text-lime cursor-pointer"
           >
             <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[rgba(243,242,238,0.16)] transition-colors group-hover:border-lime group-hover:bg-lime/10">
               <ArrowDown
@@ -198,15 +196,8 @@ export function HomeScene() {
                 aria-hidden="true"
               />
             </span>
-            <span>Scroll or click to advance to About</span>
+            <span>Scroll to explore</span>
           </button>
-
-          <div className="hidden sm:flex items-center gap-3">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">
-              INTERACTIVE 3D · DRAG TO ORBIT
-            </span>
-            <span className="h-1.5 w-1.5 rounded-full bg-lime" />
-          </div>
         </motion.div>
       </Container>
     </section>

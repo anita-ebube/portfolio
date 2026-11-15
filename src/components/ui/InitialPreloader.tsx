@@ -88,7 +88,7 @@ export function InitialPreloader() {
           <div className="relative z-10 flex items-center justify-between font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-ink-muted">
             <span className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-lime animate-ping" />
-              <span>SYSTEM // INITIALIZATION</span>
+              <span>PORTFOLIO INITIALIZATION</span>
             </span>
             <span className="text-lime font-semibold">EDITION 2026</span>
           </div>
@@ -125,7 +125,7 @@ export function InitialPreloader() {
               <div className="mt-3 flex items-center justify-between font-mono text-[10px] sm:text-[10.5px] uppercase tracking-[0.18em] text-ink-muted">
                 <span className="text-ink-secondary">{statusText}</span>
                 <span className="text-lime font-bold">
-                  {progress.toString().padStart(3, "0")}%
+                  {progress}%
                 </span>
               </div>
             </div>

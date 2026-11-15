@@ -28,12 +28,37 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio-three-inky-29.vercel.app"),
   title: {
-    default: "Anita — Product Manager & Frontend Developer",
-    template: "%s | Anita",
+    default: "Anita Ugoebillah — Product Manager & Frontend Developer",
+    template: "%s | Anita Ugoebillah",
   },
   description:
-    "Bringing product thinking, technology and creativity together to build meaningful digital experiences.",
+    "Computer Science graduate from UNN. Product Manager and Frontend Developer building web applications with React, Next.js, and Supabase.",
+  openGraph: {
+    title: "Anita Ugoebillah — Product Manager & Frontend Developer",
+    description:
+      "Computer Science graduate from UNN. Product Manager and Frontend Developer building web applications with React, Next.js, and Supabase.",
+    url: "https://portfolio-three-inky-29.vercel.app",
+    siteName: "Anita Ugoebillah Portfolio",
+    images: [
+      {
+        url: "/images/potrait.jpeg",
+        width: 718,
+        height: 1080,
+        alt: "Anita Ugoebillah — Product Manager & Frontend Developer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Anita Ugoebillah — Product Manager & Frontend Developer",
+    description:
+      "Computer Science graduate from UNN. Product Manager and Frontend Developer building web applications with React, Next.js, and Supabase.",
+    images: ["/images/potrait.jpeg"],
+  },
 };
 
 export const viewport: Viewport = {
@@ -48,11 +73,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${syne.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} dark h-full`}
     >
       <body className="min-h-full flex flex-col bg-canvas text-ink antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999] focus:rounded-md focus:bg-lime focus:px-4 focus:py-2 focus:text-canvas focus:font-mono focus:text-xs focus:font-bold shadow-lg"
+        >
+          Skip to content
+        </a>
         <InitialPreloader />
         <SmoothScrollProvider>
           <SectionTransitionProvider>
             <Navbar />
-            <div className="flex-1 flex flex-col">{children}</div>
+            <main id="main-content" className="flex-1 flex flex-col">
+              {children}
+            </main>
           </SectionTransitionProvider>
         </SmoothScrollProvider>
       </body>

@@ -9,7 +9,7 @@ export default function WorkPage() {
   return (
     <PageScaffold
       index="03"
-      eyebrow="WORK // SELECTED CASE STUDIES"
+      eyebrow="Work"
       title="Selected products and digital experiences."
       description="Case studies and shipped frontend systems will live here — presented through product context, technical decisions, and interactive execution."
       nextRoute={{ label: "View Expertise", href: "/expertise" }}

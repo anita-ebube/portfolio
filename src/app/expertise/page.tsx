@@ -9,7 +9,7 @@ export default function ExpertisePage() {
   return (
     <PageScaffold
       index="04"
-      eyebrow="EXPERTISE // PRODUCT × ENGINEERING"
+      eyebrow="Expertise"
       title="Product direction meets interface engineering."
       description="Connecting user insight, product architecture, design systems, and modern web performance into cohesive software."
       nextRoute={{ label: "Let's Connect", href: "/contact" }}

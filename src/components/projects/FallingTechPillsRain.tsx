@@ -269,8 +269,8 @@ export function FallingTechPillsRain({
             break;
         }
 
-        // Layering: background slots (z-5) pass behind main cards; foreground slots (z-22) sit in gutters
-        const zIndex = slot.isForeground ? 22 : 5;
+        // Layering: background atmospheric slots (z-0 to z-5), strictly behind interactive controls (z-20)
+        const zIndex = slot.isForeground ? 5 : 0;
 
         return (
           <div

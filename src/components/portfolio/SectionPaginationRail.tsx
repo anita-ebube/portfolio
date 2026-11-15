@@ -85,10 +85,9 @@ export function SectionPaginationRail() {
             className="group flex items-center gap-2.5 rounded-full border border-[rgba(243,242,238,0.14)] bg-[rgba(13,15,18,0.85)] px-3.5 py-2 font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-secondary backdrop-blur-xl transition-all duration-300 hover:border-lime hover:text-ink cursor-pointer shadow-lg"
           >
             <span className="text-ink-muted group-hover:text-lime transition-colors">
-              NEXT //
+              Next:
             </span>
-            <span className="text-lime font-semibold">{nextSectionInfo.num}</span>
-            <span>{nextSectionInfo.label}</span>
+            <span className="text-ink font-semibold">{nextSectionInfo.label}</span>
             <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[rgba(243,242,238,0.15)] bg-canvas transition-colors group-hover:border-lime group-hover:bg-lime/10">
               <ChevronDown
                 className="h-3 w-3 text-ink-secondary group-hover:text-lime transition-colors motion-safe:animate-bounce"

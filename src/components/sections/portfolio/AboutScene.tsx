@@ -56,14 +56,11 @@ export function AboutScene() {
           className="flex items-center justify-between gap-3 pb-2 sm:pb-3 border-b border-[rgba(243,242,238,0.08)]"
         >
           <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-lime">
-              02 // PERSPECTIVE &amp; IDENTITY
+            <span className="h-1.5 w-1.5 rounded-full bg-lime" />
+            <span className="font-sans text-xs font-bold uppercase tracking-wider text-lime">
+              About
             </span>
           </div>
-          <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted">
-            ANITA UGOEBILLAH · COMPUTER SCIENCE &amp; PRODUCT CRAFT
-          </span>
         </motion.div>
 
         {/* Center Stage: Balanced 2-Column Editorial Spread */}
@@ -91,21 +88,21 @@ export function AboutScene() {
             {/* Main Statement */}
             <motion.h2
               variants={itemVariants}
-              className="font-display text-[clamp(1.25rem,3.2vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.03em] text-ink"
+              className="font-display text-[clamp(1.35rem,3.2vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.03em] text-ink"
             >
-               Hi I&apos;m &ldquo;ANITA UGOEBILLAH &rdquo;
+              Hi, I&apos;m <span className="text-lime">Anita Ugoebillah.</span>
             </motion.h2>
 
             {/* Narrative Body Copy */}
             <motion.div
               variants={itemVariants}
-              className="mt-2 sm:mt-4 space-y-1.5 sm:space-y-2 text-[12.5px] sm:text-[14.5px] lg:text-[15.5px] leading-[1.55] text-ink-secondary"
+              className="mt-2 sm:mt-4 space-y-1.5 sm:space-y-2.5 text-[13px] sm:text-[15px] lg:text-[16px] leading-[1.6] text-ink-secondary"
             >
               <p>
-                 I&apos;m a Computer Science graduate, Product Manager and Frontend Developer who thrives at the intersection of technology, creativity and user-centered problem-solving.
+                I&apos;m a Computer Science graduate from the University of Nigeria, Nsukka (UNN) working across product management and frontend engineering. I talk directly with users, write clear technical specifications, and build responsive web applications in React.
               </p>
               <p className="hidden sm:block">
-                My journey has taught me that building high-impact products goes far beyond writing clean code. It demands understanding human behavior, asking probing questions, aligning cross-functional teams, and executing with obsessive attention to user experience.
+                From streamlining student dues and clearance verification for NACOS to shipping customer-facing ordering and reservation systems for SilentKrowd, I focus on building software that solves concrete problems for real people.
               </p>
             </motion.div>
 
@@ -119,9 +116,9 @@ export function AboutScene() {
                 className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-lime/10 blur-2xl"
               />
               <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-lime font-semibold">
-                CORE PHILOSOPHY
+                WORKING PRINCIPLE
               </span>
-              <p className="mt-0.5 sm:mt-1 font-display text-[13.5px] sm:text-[17px] font-semibold text-ink leading-[1.35]">
+              <p className="mt-0.5 sm:mt-1 font-display text-[13.5px] sm:text-[16.5px] font-semibold text-ink leading-[1.35]">
                 &ldquo;{SITE_IDENTITY.philosophy}&rdquo;
               </p>
             </motion.div>
@@ -172,9 +169,9 @@ export function AboutScene() {
           <button
             type="button"
             onClick={nextSection}
-            className="group inline-flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-secondary hover:text-lime transition-colors cursor-pointer"
+            className="group inline-flex items-center gap-2 font-sans text-xs uppercase tracking-wider text-ink-secondary hover:text-lime transition-colors cursor-pointer"
           >
-            <span>Proceed to Experience &amp; Leadership</span>
+            <span>View Experience</span>
             <ArrowUpRight className="h-3.5 w-3.5 text-lime transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </button>
 

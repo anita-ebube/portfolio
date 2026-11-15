@@ -9,7 +9,7 @@ export default function ContactPage() {
   return (
     <PageScaffold
       index="05"
-      eyebrow="CONTACT // START A CONVERSATION"
+      eyebrow="Contact"
       title="Let's build something meaningful."
       description="Direct contact channels and inquiry details will be configured here as part of the next portfolio implementation phase."
       nextRoute={{ label: "Explore Work", href: "/work" }}

@@ -31,7 +31,7 @@ interface Milestone {
 const MILESTONES: Milestone[] = [
   {
     id: "unn-cs",
-    phase: "01 // THE FOUNDATION",
+    phase: "The Foundation",
     year: "ACADEMICS",
     title: "Computer Science Degree",
     role: "Undergraduate Scholar & Developer",
@@ -49,7 +49,7 @@ const MILESTONES: Milestone[] = [
   },
   {
     id: "nacos-coordinator",
-    phase: "02 // LEADERSHIP AT SCALE",
+    phase: "Leadership at Scale",
     year: "COMMUNITY",
     title: "NACOS Southeast Coordinator",
     role: "Regional Student Technology Leader",
@@ -67,7 +67,7 @@ const MILESTONES: Milestone[] = [
   },
   {
     id: "hng-finalist",
-    phase: "03 // THE HIGH-STAKES CRUCIBLE",
+    phase: "High-Stakes Sprints",
     year: "SPRINT TRIAL",
     title: "HNG Finalist",
     role: "Product Management & Frontend Contender",
@@ -85,7 +85,7 @@ const MILESTONES: Milestone[] = [
   },
   {
     id: "pm-fe-convergence",
-    phase: "04 // THE DUAL-TRACK CRAFT",
+    phase: "Product & Engineering",
     year: "PRESENT",
     title: "The PM × FE Convergence",
     role: "Product Manager & Frontend Technologist",
@@ -120,14 +120,14 @@ export function AboutStoryTimeline() {
         <div className="flex flex-col justify-between gap-6 pb-12 sm:flex-row sm:items-end sm:pb-16">
           <div>
             <SectionHeading
-              eyebrow="CHRONICLE // MY STORY"
+              eyebrow="My Story"
               title="A journey forged in code, community, and product clarity."
               description="From lecture halls in Nsukka to high-pressure product sprints, each chapter sharpened my ability to connect people and technology."
             />
           </div>
           <div className="hidden lg:flex items-center gap-2 rounded-full border border-[rgba(243,242,238,0.12)] bg-[rgba(7,8,9,0.7)] px-4 py-2 font-mono text-xs uppercase tracking-[0.16em] text-lime">
             <Sparkles className="h-3.5 w-3.5 text-lime" />
-            <span>INTERACTIVE CHRONICLE</span>
+            <span>Interactive Timeline</span>
           </div>
         </div>
 

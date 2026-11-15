@@ -108,13 +108,13 @@ export function ExperienceScene() {
           className="flex items-center justify-between gap-3 pb-2 sm:pb-3 border-b border-[rgba(243,242,238,0.08)]"
         >
           <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
+            <span className="h-1.5 w-1.5 rounded-full bg-lime" />
             <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-lime">
-              03 // EDUCATION, LEADERSHIP &amp; ACHIEVEMENTS
+              Experience
             </span>
           </div>
           <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted">
-            THREE ESSENTIAL MILESTONES
+            Education · Leadership · Achievements
           </span>
         </motion.div>
 
@@ -128,23 +128,20 @@ export function ExperienceScene() {
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-lime ring-4 ring-lime/20" />
               <div className="h-[1px] flex-1 bg-gradient-to-r from-lime/50 to-lime/20" />
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-ink-muted">01</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-lime ring-4 ring-lime/20" />
               <div className="h-[1px] flex-1 bg-gradient-to-r from-lime/50 to-lime/20" />
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-ink-muted">02</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-lime ring-4 ring-lime/20" />
               <div className="h-[1px] flex-1 bg-gradient-to-r from-lime/50 to-lime/20" />
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-ink-muted">03</span>
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-6 xl:gap-8 items-stretch">
             {/* ======================================================== */}
-            {/* 01 — EDUCATION */}
+            {/* EDUCATION */}
             {/* ======================================================== */}
             <motion.div
               initial={prefersReducedMotion ? false : "hidden"}
@@ -160,8 +157,8 @@ export function ExperienceScene() {
                 {/* Header Lockup */}
                 <div className="flex items-center justify-between gap-2">
                   <span className="font-mono text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-lime flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
-                    01 — EDUCATION
+                    <span className="h-1.5 w-1.5 rounded-full bg-lime" />
+                    Education
                   </span>
                   <motion.span
                     variants={childItemVariants}
@@ -180,27 +177,27 @@ export function ExperienceScene() {
                   className="h-[1px] w-full bg-gradient-to-r from-lime/70 via-lime/20 to-transparent my-3 sm:my-4"
                 />
 
-                {/* Oversized Masked Typography: COMPUTER SCIENCE (Sized to fit cleanly without horizontal clipping) */}
-                <div className="space-y-0.5 mt-2 sm:mt-3">
-                  <div className="overflow-hidden">
-                    <motion.h2
+                {/* Oversized Masked Typography: COMPUTER SCIENCE as a single semantic h2 */}
+                <h2 className="font-display text-[clamp(1.5rem,2.15vw,2.35rem)] font-extrabold tracking-tight uppercase leading-[0.96] space-y-0.5 mt-2 sm:mt-3">
+                  <span className="block overflow-hidden">
+                    <motion.span
                       custom={0}
                       variants={wordRevealVariants}
-                      className="font-display text-[clamp(1.75rem,2.4vw,2.5rem)] font-extrabold tracking-tight text-ink uppercase leading-[0.95]"
+                      className="block text-ink"
                     >
                       COMPUTER
-                    </motion.h2>
-                  </div>
-                  <div className="overflow-hidden">
-                    <motion.h2
+                    </motion.span>
+                  </span>
+                  <span className="block overflow-hidden">
+                    <motion.span
                       custom={1}
                       variants={wordRevealVariants}
-                      className="font-display text-[clamp(1.75rem,2.4vw,2.5rem)] font-extrabold tracking-tight text-lime uppercase leading-[0.95]"
+                      className="block text-lime"
                     >
                       SCIENCE
-                    </motion.h2>
-                  </div>
-                </div>
+                    </motion.span>
+                  </span>
+                </h2>
 
                 {/* Institution & Degree */}
                 <motion.div
@@ -230,7 +227,7 @@ export function ExperienceScene() {
             </motion.div>
 
             {/* ======================================================== */}
-            {/* 02 — LEADERSHIP */}
+            {/* LEADERSHIP */}
             {/* ======================================================== */}
             <motion.div
               initial={prefersReducedMotion ? false : "hidden"}
@@ -246,8 +243,8 @@ export function ExperienceScene() {
                 {/* Header Lockup */}
                 <div className="flex items-center justify-between gap-2">
                   <span className="font-mono text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-lime flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
-                    02 — LEADERSHIP
+                    <span className="h-1.5 w-1.5 rounded-full bg-lime" />
+                    Leadership
                   </span>
                 </div>
 
@@ -280,16 +277,13 @@ export function ExperienceScene() {
                     </div>
                   </motion.div>
 
-                  {/* Connecting Progression Trace Line */}
-                  <div className="relative pl-6 sm:pl-7 py-1">
+                  {/* Connecting Timeline Trace Line */}
+                  <div className="relative pl-6 sm:pl-7 py-0.5">
                     <motion.div
                       variants={verticalLineVariants}
                       style={{ originY: 0 }}
-                      className="absolute left-[7px] -top-3 -bottom-3 w-[1.5px] bg-gradient-to-b from-lime via-lime/50 to-lime/80"
+                      className="absolute left-[7px] -top-2.5 -bottom-2.5 w-[1.5px] bg-gradient-to-b from-lime via-lime/40 to-lime"
                     />
-                    <div className="font-mono text-[8.5px] uppercase tracking-[0.22em] text-ink-muted/80 pl-1">
-                      ↓ PROGRESSION
-                    </div>
                   </div>
 
                   {/* Position 02: Assistant Zonal Coordinator — NACOS */}
@@ -320,7 +314,7 @@ export function ExperienceScene() {
             </motion.div>
 
             {/* ======================================================== */}
-            {/* 03 — ACHIEVEMENTS */}
+            {/* ACHIEVEMENTS */}
             {/* ======================================================== */}
             <motion.div
               initial={prefersReducedMotion ? false : "hidden"}
@@ -336,8 +330,8 @@ export function ExperienceScene() {
                 {/* Header Lockup */}
                 <div className="flex items-center justify-between gap-2">
                   <span className="font-mono text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] text-lime flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
-                    03 — ACHIEVEMENTS
+                    <span className="h-1.5 w-1.5 rounded-full bg-lime" />
+                    Achievements
                   </span>
                 </div>
 
@@ -413,7 +407,7 @@ export function ExperienceScene() {
             onClick={() => goToSection(1)}
             className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted hover:text-ink transition-colors cursor-pointer"
           >
-            ↑ Back to About
+            Back to About
           </button>
         </motion.div>
       </Container>

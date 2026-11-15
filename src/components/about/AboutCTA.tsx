@@ -15,8 +15,8 @@ export function AboutCTA() {
         <div className="relative overflow-hidden rounded-3xl border border-[rgba(243,242,238,0.12)] bg-[radial-gradient(circle_at_20%_30%,rgba(200,255,0,0.08)_0%,rgba(13,15,18,0.92)_50%,rgba(7,8,9,1)_100%)] p-8 sm:p-14 backdrop-blur-2xl">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
-              <p className="font-mono text-xs uppercase tracking-[0.24em] text-lime">
-                NEXT STEPS // EXPLORE &amp; CONNECT
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-lime">
+                Explore &amp; Connect
               </p>
               <h2 className="mt-3 font-display text-2xl font-bold tracking-tight text-ink sm:text-4xl">
                 Ready to see product thinking translated into tangible interfaces?
@@ -55,7 +55,7 @@ export function AboutCTA() {
               <ArrowLeft className="h-3.5 w-3.5" />
               <span>Return to Hero Stage</span>
             </Link>
-            <span>EDITION 2026 // PRODUCT MANAGEMENT × FRONTEND</span>
+            <span>Anita Ugoebillah · Product Management &amp; Frontend</span>
           </div>
         </div>
       </Container>

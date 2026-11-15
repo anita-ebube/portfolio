@@ -71,12 +71,13 @@ export function ContactScene() {
           className="flex items-center justify-between gap-3 pb-2 sm:pb-3 border-b border-[rgba(243,242,238,0.08)]"
         >
           <div className="flex items-center gap-2">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-lime">
-              06 // INITIATE DIALOGUE
+            <span className="h-1.5 w-1.5 rounded-full bg-lime" />
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-lime font-semibold">
+              Contact
             </span>
           </div>
           <span className="hidden sm:inline-block font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted">
-            AVAILABLE FOR PRODUCT MANAGEMENT &amp; FRONTEND ROLES
+            Direct Inquiries &amp; Collaborations
           </span>
         </motion.div>
 
@@ -93,7 +94,7 @@ export function ContactScene() {
             className="inline-flex items-center gap-2 rounded-full border border-[rgba(200,255,0,0.3)] bg-[rgba(200,255,0,0.06)] px-3.5 py-1.5 backdrop-blur-md"
           >
             <span className="font-mono text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-lime">
-              AVAILABLE FOR NEW OPPORTUNITIES // REMOTE &amp; HYBRID
+              OPEN TO PRODUCT MANAGEMENT &amp; FRONTEND ROLES
             </span>
           </motion.div>
 
@@ -102,8 +103,8 @@ export function ContactScene() {
             variants={itemVariants}
             className="font-display text-[clamp(2.1rem,5vw,4.5rem)] font-bold leading-[0.98] tracking-[-0.03em] text-ink"
           >
-            Have an idea? <br />
-            <span className="text-lime">Let&apos;s make it happen.</span>
+            Hiring a PM or developer? <br />
+            <span className="text-lime">Let&apos;s talk.</span>
           </motion.h2>
 
           {/* Supporting Copy */}
@@ -157,7 +158,7 @@ export function ContactScene() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(243,242,238,0.12)] bg-[rgba(13,15,18,0.6)] text-ink transition-colors hover:border-lime hover:text-lime"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(243,242,238,0.12)] bg-[rgba(13,15,18,0.6)] text-ink transition-colors hover:border-lime hover:text-lime"
             >
               <svg
                 className="h-4 w-4 fill-current"
@@ -173,7 +174,7 @@ export function ContactScene() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(243,242,238,0.12)] bg-[rgba(13,15,18,0.6)] text-ink transition-colors hover:border-lime hover:text-lime"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(243,242,238,0.12)] bg-[rgba(13,15,18,0.6)] text-ink transition-colors hover:border-lime hover:text-lime"
             >
               <svg
                 className="h-4 w-4 fill-current"
@@ -205,7 +206,7 @@ export function ContactScene() {
             className="group inline-flex items-center gap-2 text-ink-secondary hover:text-lime transition-colors cursor-pointer"
           >
             <ArrowUp className="h-3.5 w-3.5 text-lime transition-transform group-hover:-translate-y-0.5" />
-            <span>Return to Stage 01 (Home)</span>
+            <span>Return to top</span>
           </button>
         </motion.div>
       </Container>

@@ -93,7 +93,7 @@ export function AboutPhilosophy() {
         {/* Section Header */}
         <div className="pb-12 sm:pb-16">
           <SectionHeading
-            eyebrow="ETHOS // PERSONALITY & PHILOSOPHY"
+            eyebrow="Ethos &amp; Philosophy"
             title="How I think, build, and show up every day."
             description="Six core principles that govern my perspective, combined with a singular guiding philosophy."
           />
@@ -154,7 +154,7 @@ export function AboutPhilosophy() {
                   {/* Top Card Bar */}
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs font-semibold text-lime">
-                      {principle.index} // PRINCIPLE
+                      Principle {principle.index}
                     </span>
                     <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-[rgba(243,242,238,0.12)] bg-[rgba(20,23,28,0.8)] text-ink-secondary transition-colors group-hover:border-lime group-hover:text-lime">
                       <Icon className="h-4.5 w-4.5" aria-hidden="true" />
