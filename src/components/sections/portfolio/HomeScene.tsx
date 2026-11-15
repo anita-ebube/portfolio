@@ -93,9 +93,9 @@ export function HomeScene() {
             {/* Purposeful Introductory Discipline Lockup */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex max-w-full items-center gap-2 self-start rounded-full border border-[rgba(200,255,0,0.32)] bg-[rgba(200,255,0,0.06)] px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md"
+              className="inline-flex max-w-full items-center gap-2 self-start rounded-full px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md"
             >
-              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-lime animate-pulse" />
+              {/* <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-lime animate-pulse" /> */}
               <p className="font-mono text-[9.5px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.2em] text-lime">
                 <span className="sm:hidden">PM × FE // PRODUCT &amp; FRONTEND</span>
                 <span className="hidden sm:inline">PRODUCT MANAGER × FRONTEND DEVELOPER</span>
